@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold text-body-emphasis">To Do List</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Master Your Day: The Ultimate To-Do List Platform for Seamless Productivity and Success</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a
+          class="btn btn-primary float-right"
+          href="{{ url_for('create_todo')  }}"
+          >Create New Post</a
+        >
+      </div>
+    </div>
+  </div>
+    <div class="container">
+      <ul class="list-group">
+  <li class="list-group-item">
+    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
+    <label class="form-check-label" for="firstCheckbox">First checkbox</label>
+  </li>
+  <li class="list-group-item">
+    <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox">
+    <label class="form-check-label" for="secondCheckbox">Second checkbox</label>
+  </li>
+  <li class="list-group-item">
+    <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox">
+    <label class="form-check-label" for="thirdCheckbox">Third checkbox</label>
+  </li>
+  <li class="list-group-item">
+    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
+    <label class="form-check-label" for="firstCheckbox">First checkbox</label>
+  </li>
+  <li class="list-group-item">
+    <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox">
+    <label class="form-check-label" for="secondCheckbox">Second checkbox</label>
+  </li>
+  <li class="list-group-item">
+    <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox">
+    <label class="form-check-label" for="thirdCheckbox">Third checkbox</label>
+  </li>
+    </ul>
+    </div>
+{% endblock %}

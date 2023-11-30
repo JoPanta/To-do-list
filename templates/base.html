@@ -32,45 +32,9 @@
       </div>
     </header>
   </div>
-  <div class="px-4 py-5 my-5 text-center">
-    <h1 class="display-5 fw-bold text-body-emphasis">To Do List</h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Master Your Day: The Ultimate To-Do List Platform for Seamless Productivity and Success</p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Create To Do</button>
-      </div>
-    </div>
-  </div>
-    <div class="container">
-      <ul class="list-group">
-  <li class="list-group-item">
-    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
-    <label class="form-check-label" for="firstCheckbox">First checkbox</label>
-  </li>
-  <li class="list-group-item">
-    <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox">
-    <label class="form-check-label" for="secondCheckbox">Second checkbox</label>
-  </li>
-  <li class="list-group-item">
-    <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox">
-    <label class="form-check-label" for="thirdCheckbox">Third checkbox</label>
-  </li>
-  <li class="list-group-item">
-    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
-    <label class="form-check-label" for="firstCheckbox">First checkbox</label>
-  </li>
-  <li class="list-group-item">
-    <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckbox">
-    <label class="form-check-label" for="secondCheckbox">Second checkbox</label>
-  </li>
-  <li class="list-group-item">
-    <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckbox">
-    <label class="form-check-label" for="thirdCheckbox">Third checkbox</label>
-  </li>
-    </ul>
-    </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  {% block content %}
+  {% endblock %}
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
   <div class="container">
   <footer class="pt-5 mt-5">
