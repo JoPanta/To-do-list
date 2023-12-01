@@ -3,6 +3,7 @@ from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
+from flask import request
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
@@ -21,12 +22,14 @@ class Todos(db.Model):
         return f"<Task {self.task}>"
 
 
+
 with app.app_context():
     db.create_all()
 
 class Form(FlaskForm):
     todo = StringField("To-do")
     submit = SubmitField("Create")
+
 
 @app.route('/create', methods=["Get", "Post"])
 def create_todo():
@@ -40,7 +43,26 @@ def create_todo():
         return redirect(url_for('home'))
     return render_template("form.html", form=form)
 
-@app.route('/')
+@app.route("/update_task/<int:todo_id>", methods=["POST"])
+def update_task(todo_id):
+    if request.method == "POST":
+        todo_to_update = Todos.query.get_or_404(todo_id)
+
+        # Check if the "<s>" tag is present in the task content
+        completed = "<s>" in todo_to_update.task
+
+        if completed:
+            # Remove <s> tags if the checkbox is unchecked
+            todo_to_update.task = todo_to_update.task.replace('<s>', '').replace('</s>', '')
+
+        else:
+            todo_to_update.task = f'<s>{todo_to_update.task}</s>'
+
+
+        db.session.commit()
+        return redirect(url_for('home'))
+
+@app.route('/', methods=["Get", "Post"])
 def home():
     result = db.session.execute(db.select(Todos).order_by(Todos.id.desc()))
     todos = result.scalars()

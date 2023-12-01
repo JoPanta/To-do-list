@@ -5,27 +5,21 @@
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4">Master Your Day: The Ultimate To-Do List Platform for Seamless Productivity and Success</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <a
-          class="btn btn-primary float-right"
-          href="{{ url_for('create_todo')  }}"
-          >Create New Post</a
-        >
+        <a class="btn btn-primary float-right" href="{{ url_for('create_todo') }}">Create New Post</a>
       </div>
     </div>
   </div>
-    <div class="container">
-      <ul class="list-group">
+  <div class="container">
+    <ul class="list-group">
       {% for todo in all_todos %}
-  <li class="list-group-item">
-    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox">
-    <label class="form-check-label" for="firstCheckbox">{{todo.task|safe}}</label
-  </li>
+        <li class="list-group-item">
+          <form method="POST" action="{{ url_for('update_task', todo_id=todo.id) }}">
+            <input class="form-check-input me-1" type="checkbox" onchange="this.form.submit()">
+<!--            displaying the tod.task with |safe to hide html elements-->
+            <label class="form-check-label" for="checkbox{{ todo.id }}">{{ todo.task|safe }}</label>
+          </form>
+        </li>
       {% endfor %}
     </ul>
-    </div>
- <style>
-    input[type=checkbox]:checked + label.form-check-label {
-      text-decoration: line-through;
-    }
-  </style>
+  </div>
 {% endblock %}
